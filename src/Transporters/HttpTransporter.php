@@ -63,7 +63,8 @@ final class HttpTransporter implements TransporterContract
         }
 
         if (isset($response['error'])) {
-            throw new ErrorException($response);
+            $error = ['message' => $response['error']];
+            throw new ErrorException($error);
         }
 
         return $response;
